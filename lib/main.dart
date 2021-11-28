@@ -35,13 +35,15 @@ class _MyHomePageState extends State<MyHomePage> {
         title: Text("EScan"),
         centerTitle: true,
       ),
-      body: Center(
-        child: Text(
-          "Hello World",
-          style: TextStyle(
-            fontSize: 20,
+      body: Column(
+        children: [
+          Text(
+            "Hello World",
+            style: TextStyle(
+              fontSize: 20,
+            ),
           ),
-        ),
+        ],
       ),
     );
   }
