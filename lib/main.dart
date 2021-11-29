@@ -35,7 +35,7 @@ class _MyHomePageState extends State<MyHomePage> {
         centerTitle: true,
       ),
       body: Column(
-        children: [
+        children: const [
           Text(
             "Hello World",
             style: TextStyle(
