@@ -34,6 +34,7 @@ class _MyHomePageState extends State<MyHomePage> {
         title: Text("EScan"),
         centerTitle: true,
       ),
+
       body: Column(
         children: [
           Text(
@@ -43,10 +44,14 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
             Text(
           "Hello World from Siddhant",
+
           style: TextStyle(
             fontSize: 20,
               ),
             ),
+            
+            Text(
+          "Hello World from Tanmay",),
           
         ],
       ),
