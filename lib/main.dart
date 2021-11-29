@@ -33,29 +33,10 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
         title: Text("EScan"),
         centerTitle: true,
-      ),      body: Column(
-        children: [
-          Text(
-            "Hello World",
-            style: TextStyle(
-              fontSize: 20,
-            ),
-            Text(
-          "Hello World from Siddhant",
-          style: TextStyle(
-            fontSize: 20,
-              ),
-            ),
-            
-            Text(
-          "Hello World from Tanmay",
-            ),
-            Text(
-          "Hello World from Anuraag",
-            ),
-          
-        ],
       ),
+        body: Container(
+
+        )
     );
   }
 }
