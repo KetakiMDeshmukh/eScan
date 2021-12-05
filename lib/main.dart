@@ -1,3 +1,5 @@
+import 'package:e_scan/homepage.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -15,11 +17,12 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const MyHomePage(),
+      home: const HomePage(),
     );
   }
 }
 
+// Ketaki's Part
 class MyHomePage extends StatefulWidget {
   const MyHomePage({Key? key}) : super(key: key);
   @override
@@ -34,23 +37,7 @@ class _MyHomePageState extends State<MyHomePage> {
         title: Text("EScan"),
         centerTitle: true,
       ),
-      body: Column(
-        children: const [
-          Text(
-            "Hello World",
-            style: TextStyle(
-              fontSize: 20,
-            ),
-
-          Text(
-          "Hello World from Siddhant",
-          style: TextStyle(
-            fontSize: 20,
-              ),
-            ),
-          
-        ],
-      ),
+      body: Container(),
     );
   }
 }
