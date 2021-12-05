@@ -1,6 +1,7 @@
 import 'package:e_scan/action.dart';
 import 'package:e_scan/home.dart';
 import 'package:flutter/material.dart';
+import 'menu_page.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -10,8 +11,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-
-  int currentTab =0;
+  int currentTab = 0;
   final List<Widget> screens = [
     Home(),
     ActionPage(),
@@ -23,10 +23,15 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      //Siddhant's Part
+      //---------------
+      drawer: NavDrawer(),
       appBar: AppBar(
-        title: Text("EScan"),
-        centerTitle: true,
+        title: const Center(child: Text('eScan')),
+        actions: const [Icon(Icons.filter_alt_sharp)],
       ),
+      //---------------
+
       body: PageStorage(
         child: currentScreen,
         bucket: bucket,
@@ -52,7 +57,7 @@ class _HomePageState extends State<HomePage> {
                     onPressed: () {
                       setState(() {
                         currentScreen = Home();
-                        currentTab=0;
+                        currentTab = 0;
                       });
                     },
                     child: Column(
@@ -62,8 +67,11 @@ class _HomePageState extends State<HomePage> {
                           Icons.home,
                           color: currentTab == 0 ? Colors.blue : Colors.grey,
                         ),
-                        Text('Home',
-                          style: TextStyle(color: currentTab == 0 ? Colors.blue : Colors.grey),
+                        Text(
+                          'Home',
+                          style: TextStyle(
+                              color:
+                                  currentTab == 0 ? Colors.blue : Colors.grey),
                         ),
                       ],
                     ),
@@ -78,7 +86,7 @@ class _HomePageState extends State<HomePage> {
                     onPressed: () {
                       setState(() {
                         currentScreen = ActionPage();
-                        currentTab=1;
+                        currentTab = 1;
                       });
                     },
                     child: Column(
@@ -88,8 +96,11 @@ class _HomePageState extends State<HomePage> {
                           Icons.home,
                           color: currentTab == 1 ? Colors.blue : Colors.grey,
                         ),
-                        Text('Actions',
-                          style: TextStyle(color: currentTab == 1 ? Colors.blue : Colors.grey),
+                        Text(
+                          'Actions',
+                          style: TextStyle(
+                              color:
+                                  currentTab == 1 ? Colors.blue : Colors.grey),
                         ),
                       ],
                     ),
