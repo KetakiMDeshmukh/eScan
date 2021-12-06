@@ -1,6 +1,8 @@
 import 'package:e_scan/action.dart';
 import 'package:e_scan/home.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'actions_screen.dart';
 import 'menu_page.dart';
 
 class HomePage extends StatefulWidget {
@@ -37,7 +39,10 @@ class _HomePageState extends State<HomePage> {
         bucket: bucket,
       ),
       floatingActionButton: FloatingActionButton(
-        child: Icon(Icons.add),
+        child: const Icon(
+          CupertinoIcons.camera_viewfinder,
+          size: 35.0,
+        ),
         onPressed: () {},
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
@@ -67,12 +72,6 @@ class _HomePageState extends State<HomePage> {
                           Icons.home,
                           color: currentTab == 0 ? Colors.blue : Colors.grey,
                         ),
-                        Text(
-                          'Home',
-                          style: TextStyle(
-                              color:
-                                  currentTab == 0 ? Colors.blue : Colors.grey),
-                        ),
                       ],
                     ),
                   ),
@@ -85,7 +84,7 @@ class _HomePageState extends State<HomePage> {
                     minWidth: 50,
                     onPressed: () {
                       setState(() {
-                        currentScreen = ActionPage();
+                        currentScreen = ActionScreen();
                         currentTab = 1;
                       });
                     },
@@ -93,14 +92,8 @@ class _HomePageState extends State<HomePage> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Icon(
-                          Icons.home,
+                          CupertinoIcons.circle_grid_3x3_fill,
                           color: currentTab == 1 ? Colors.blue : Colors.grey,
-                        ),
-                        Text(
-                          'Actions',
-                          style: TextStyle(
-                              color:
-                                  currentTab == 1 ? Colors.blue : Colors.grey),
                         ),
                       ],
                     ),
