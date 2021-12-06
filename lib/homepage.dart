@@ -1,7 +1,10 @@
 import 'package:e_scan/action.dart';
 import 'package:e_scan/home.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'actions_screen.dart';
 import 'menu_page.dart';
+import 'constants.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -27,8 +30,16 @@ class _HomePageState extends State<HomePage> {
       //---------------
       drawer: NavDrawer(),
       appBar: AppBar(
-        title: const Center(child: Text('eScan')),
-        actions: const [Icon(Icons.filter_alt_sharp)],
+        title: Text(
+          titleName,
+          style: TextStyle(fontSize: 25.0),
+        ),
+        actions: [
+          Container(
+            child: const Icon(Icons.filter_alt_sharp),
+            padding: EdgeInsets.only(right: 10.0),
+          ),
+        ],
       ),
       //---------------
 
@@ -37,7 +48,10 @@ class _HomePageState extends State<HomePage> {
         bucket: bucket,
       ),
       floatingActionButton: FloatingActionButton(
-        child: Icon(Icons.add),
+        child: const Icon(
+          CupertinoIcons.camera_viewfinder,
+          size: 35.0,
+        ),
         onPressed: () {},
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
@@ -58,6 +72,7 @@ class _HomePageState extends State<HomePage> {
                       setState(() {
                         currentScreen = Home();
                         currentTab = 0;
+                        titleName = 'eScan';
                       });
                     },
                     child: Column(
@@ -66,12 +81,6 @@ class _HomePageState extends State<HomePage> {
                         Icon(
                           Icons.home,
                           color: currentTab == 0 ? Colors.blue : Colors.grey,
-                        ),
-                        Text(
-                          'Home',
-                          style: TextStyle(
-                              color:
-                                  currentTab == 0 ? Colors.blue : Colors.grey),
                         ),
                       ],
                     ),
@@ -85,22 +94,17 @@ class _HomePageState extends State<HomePage> {
                     minWidth: 50,
                     onPressed: () {
                       setState(() {
-                        currentScreen = ActionPage();
+                        currentScreen = ActionScreen();
                         currentTab = 1;
+                        titleName = 'Actions';
                       });
                     },
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Icon(
-                          Icons.home,
+                          CupertinoIcons.circle_grid_3x3_fill,
                           color: currentTab == 1 ? Colors.blue : Colors.grey,
-                        ),
-                        Text(
-                          'Actions',
-                          style: TextStyle(
-                              color:
-                                  currentTab == 1 ? Colors.blue : Colors.grey),
                         ),
                       ],
                     ),
