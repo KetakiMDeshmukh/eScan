@@ -4,6 +4,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'actions_screen.dart';
 import 'menu_page.dart';
+import 'constants.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -29,8 +30,16 @@ class _HomePageState extends State<HomePage> {
       //---------------
       drawer: NavDrawer(),
       appBar: AppBar(
-        title: const Center(child: Text('eScan')),
-        actions: const [Icon(Icons.filter_alt_sharp)],
+        title: Text(
+          titleName,
+          style: TextStyle(fontSize: 25.0),
+        ),
+        actions: [
+          Container(
+            child: const Icon(Icons.filter_alt_sharp),
+            padding: EdgeInsets.only(right: 10.0),
+          ),
+        ],
       ),
       //---------------
 
@@ -63,6 +72,7 @@ class _HomePageState extends State<HomePage> {
                       setState(() {
                         currentScreen = Home();
                         currentTab = 0;
+                        titleName = 'eScan';
                       });
                     },
                     child: Column(
@@ -86,6 +96,7 @@ class _HomePageState extends State<HomePage> {
                       setState(() {
                         currentScreen = ActionScreen();
                         currentTab = 1;
+                        titleName = 'Actions';
                       });
                     },
                     child: Column(
