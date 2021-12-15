@@ -48,6 +48,7 @@ class _HomePageState extends State<HomePage> {
         bucket: bucket,
       ),
       floatingActionButton: FloatingActionButton(
+        backgroundColor: Colors.blue,
         child: const Icon(
           CupertinoIcons.camera_viewfinder,
           size: 35.0,
