@@ -94,5 +94,6 @@ Features of text recognition, reading, writing, editing, merging, splitting, sca
 ## 📱 Screenshots
 
 <img src="/assets/images/Screen1.jpg">
-
+<img src="/assets/images/Screen2.jpg">
+<img src="/assets/images/Screen3.jpg">
 
