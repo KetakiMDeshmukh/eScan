@@ -93,7 +93,7 @@ Features of text recognition, reading, writing, editing, merging, splitting, sca
 ## 🔭 Future scope
 ## 📱 Screenshots
 
-<img src="/images/Screen1.jpg" width = "20%" height="20%">
-<img src="/images/Screen2.jpg" width = "20%" height="20%">
-<img src="/images/Screen3.jpg" width = "20%" height="20%">
+<img src="/images/Screen1.jpg" width = "30%" height="30%">
+<img src="/images/Screen2.jpg" width = "30%" height="30%">
+<img src="/images/Screen3.jpg" width = "30%" height="30%">
 
