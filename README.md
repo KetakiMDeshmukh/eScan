@@ -90,7 +90,7 @@ Tools and technologies learnt and used in this project:
 ## ⚙️ Applications
 Features of text recognition, reading, writing, editing, merging, splitting, scanning, coverting to, sharing pdfs from local storage/device also from links.
 
-## Future scope
+## 🔭 Future scope
 ## 📱 Screenshots
 
 <img src="/assets/images/Screen1.jpg">
