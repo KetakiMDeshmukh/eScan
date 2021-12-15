@@ -9,7 +9,7 @@
 
 
 
-## 👨‍💻 Team members
+## :busts_in_silhouette: Team members
 
 - Ketaki Deshmukh - kmdeshmukh_b20@ce.vjti.ac.in
 - Tanmay Navandar - tmnavandar_b20@ce.vjti.ac.in
