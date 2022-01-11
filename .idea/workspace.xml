@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+<<<<<<< HEAD
+=======
   <component name="AndroidLogFilters">
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
   </component>
@@ -41,12 +43,15 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../../flutter_projects/bmi-calculator-flutter" />
     <property name="show.migrate.to.gradle.popup" value="false" />
   </component>
+>>>>>>> Dev
   <component name="RunManager">
     <configuration name="main.dart" type="FlutterRunConfigurationType" factoryName="Flutter">
       <option name="filePath" value="$PROJECT_DIR$/lib/main.dart" />
       <method v="2" />
     </configuration>
   </component>
+<<<<<<< HEAD
+=======
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -70,4 +75,5 @@
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
+>>>>>>> Dev
 </project>

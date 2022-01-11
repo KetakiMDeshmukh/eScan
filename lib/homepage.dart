@@ -1,6 +1,10 @@
 import 'package:e_scan/action.dart';
 import 'package:e_scan/home.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'actions_screen.dart';
+import 'menu_page.dart';
+import 'constants.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -10,8 +14,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-
-  int currentTab =0;
+  int currentTab = 0;
   final List<Widget> screens = [
     Home(),
     ActionPage(),
@@ -23,16 +26,33 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      //Siddhant's Part
+      //---------------
+      drawer: NavDrawer(),
       appBar: AppBar(
-        title: Text("EScan"),
-        centerTitle: true,
+        title: Text(
+          titleName,
+          style: TextStyle(fontSize: 25.0),
+        ),
+        actions: [
+          Container(
+            child: const Icon(Icons.filter_alt_sharp),
+            padding: EdgeInsets.only(right: 10.0),
+          ),
+        ],
       ),
+      //---------------
+
       body: PageStorage(
         child: currentScreen,
         bucket: bucket,
       ),
       floatingActionButton: FloatingActionButton(
-        child: Icon(Icons.add),
+        backgroundColor: Colors.blue,
+        child: const Icon(
+          CupertinoIcons.camera_viewfinder,
+          size: 35.0,
+        ),
         onPressed: () {},
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
@@ -52,7 +72,8 @@ class _HomePageState extends State<HomePage> {
                     onPressed: () {
                       setState(() {
                         currentScreen = Home();
-                        currentTab=0;
+                        currentTab = 0;
+                        titleName = 'eScan';
                       });
                     },
                     child: Column(
@@ -61,9 +82,6 @@ class _HomePageState extends State<HomePage> {
                         Icon(
                           Icons.home,
                           color: currentTab == 0 ? Colors.blue : Colors.grey,
-                        ),
-                        Text('Home',
-                          style: TextStyle(color: currentTab == 0 ? Colors.blue : Colors.grey),
                         ),
                       ],
                     ),
@@ -77,19 +95,17 @@ class _HomePageState extends State<HomePage> {
                     minWidth: 50,
                     onPressed: () {
                       setState(() {
-                        currentScreen = ActionPage();
-                        currentTab=1;
+                        currentScreen = ActionScreen();
+                        currentTab = 1;
+                        titleName = 'Actions';
                       });
                     },
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Icon(
-                          Icons.home,
+                          CupertinoIcons.circle_grid_3x3_fill,
                           color: currentTab == 1 ? Colors.blue : Colors.grey,
-                        ),
-                        Text('Actions',
-                          style: TextStyle(color: currentTab == 1 ? Colors.blue : Colors.grey),
                         ),
                       ],
                     ),
