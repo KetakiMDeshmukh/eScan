@@ -1,14 +1,19 @@
 import 'package:e_scan/homepage.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:camera/camera.dart';
 import 'constants.dart';
 
-void main() {
-  runApp(const MyApp());
+void main() async{
+  WidgetsFlutterBinding.ensureInitialized();
+  // Obtain a list of the available cameras on the device.
+  final camerasOg = await availableCameras();
+  runApp(MyApp(cameras: camerasOg));
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+  final List<CameraDescription> cameras;
+  const MyApp({Key? key, required this.cameras}) : super(key: key);
 
   // This widget is the root of your application.
   @override
@@ -16,27 +21,8 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: titleName,
       theme: ThemeData.dark(),
-      home: const HomePage(),
+      home:  HomePage(camerasHP: cameras),
     );
   }
 }
 
-// Ketaki's Part
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({Key? key}) : super(key: key);
-  @override
-  State<MyHomePage> createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text("EScan"),
-        centerTitle: true,
-      ),
-      body: Container(),
-    );
-  }
-}

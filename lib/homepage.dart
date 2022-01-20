@@ -1,13 +1,17 @@
-import 'package:e_scan/action.dart';
 import 'package:e_scan/home.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:camera/camera.dart';
+
 import 'actions_screen.dart';
 import 'menu_page.dart';
 import 'constants.dart';
+import 'camera_screen.dart';
 
 class HomePage extends StatefulWidget {
-  const HomePage({Key? key}) : super(key: key);
+  const HomePage({Key? key, required this.camerasHP}) : super(key: key);
+
+  final List<CameraDescription> camerasHP;
 
   @override
   _HomePageState createState() => _HomePageState();
@@ -17,7 +21,7 @@ class _HomePageState extends State<HomePage> {
   int currentTab = 0;
   final List<Widget> screens = [
     Home(),
-    ActionPage(),
+    ActionScreen(),
   ];
 
   final PageStorageBucket bucket = PageStorageBucket();
@@ -53,7 +57,16 @@ class _HomePageState extends State<HomePage> {
           CupertinoIcons.camera_viewfinder,
           size: 35.0,
         ),
-        onPressed: () {},
+        //TODO add action on pressing camera button
+        onPressed: () {
+          print("camera page");
+          Navigator.push(
+              context,
+              MaterialPageRoute(
+                  builder: (context) => CameraScreen(cameras: widget.camerasHP),
+              )
+          );
+        },
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       bottomNavigationBar: BottomAppBar(

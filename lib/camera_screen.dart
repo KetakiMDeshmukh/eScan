@@ -1,0 +1,155 @@
+import 'dart:io';
+
+import 'package:camera/camera.dart';
+import 'package:flutter/material.dart';
+//import 'gallery_screen.dart';
+import 'image_display.dart';
+
+class CameraScreen extends StatefulWidget {
+  final List<CameraDescription> cameras;
+  const CameraScreen({Key? key, required this.cameras, }) : super(key: key);
+
+  @override
+  _CameraScreenState createState() => _CameraScreenState();
+}
+
+class _CameraScreenState extends State<CameraScreen> {
+  @override
+  void initState() {
+    initializeCamera(selectedCamera); //Initially selectedCamera = 0
+    super.initState();
+  }
+
+  late CameraController _controller; //To control the camera
+  late Future<void> _initializeControllerFuture; //Future to wait until camera initializes
+  int selectedCamera = 0;
+  List<File> capturedImages = [];
+
+  initializeCamera(int cameraIndex) async {
+    _controller = CameraController(
+      // Get a specific camera from the list of available cameras.
+      widget.cameras[cameraIndex],
+      // Define the resolution to use.
+      ResolutionPreset.medium,
+    );
+
+    // Next, initialize the controller. This returns a Future.
+    _initializeControllerFuture = _controller.initialize();
+    await _controller.setFlashMode(FlashMode.off);
+  }
+
+  @override
+  void dispose() {
+    // Dispose of the controller when the widget is disposed.
+    _controller.dispose();
+    super.dispose();
+  }
+
+  void initializeController () async {
+    await _initializeControllerFuture;
+    await _controller.setFlashMode(FlashMode.off);
+    var xFile = await _controller.takePicture();
+    setState(() {
+      capturedImages.add(File(xFile.path));
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: Colors.black,
+      /*appBar: AppBar(
+        title: Text("Camera"),
+      ),*/
+      body: Column(
+        children: [
+          FutureBuilder<void>(
+            future: _initializeControllerFuture,
+            builder: (context, snapshot) {
+              if (snapshot.connectionState == ConnectionState.done) {
+                // If the Future is complete, display the preview.
+                return CameraPreview(_controller);
+              } else {
+                // Otherwise, display a loading indicator.
+                return const Center(child: CircularProgressIndicator());
+              }
+            },
+          ),
+          Spacer(),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 10),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                IconButton(
+                  onPressed: () {
+                    if (widget.cameras.length > 1) {
+                      setState(() {
+                        selectedCamera = selectedCamera == 0 ? 1 : 0;
+                        initializeCamera(selectedCamera);
+                      });
+                    } else {
+                      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                        content: Text('No secondary camera found'),
+                        duration: const Duration(seconds: 2),
+                      ));
+                    }
+                  },
+                  icon: Icon(Icons.switch_camera_rounded, color: Colors.white),
+                ),
+                GestureDetector(
+                  onTap: initializeController,
+                  child: Container(
+                    height: 60,
+                    width: 60,
+                    decoration: BoxDecoration(
+                      shape: BoxShape.circle,
+                      color: Colors.white,
+
+                    ),
+                  ),
+                ),
+                GestureDetector(
+                  onTap: () {
+                    if (capturedImages.isEmpty) return;
+                    //dispose();
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => image_display(listOfImages: capturedImages)
+                          /*GalleryScreen(
+                                images: capturedImages.reversed.toList()
+                            )*/
+                        )
+                    );
+                  },
+                  child: Container(
+                    color: Colors.lightBlueAccent,
+
+                    child: Row(
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Text(
+                              (capturedImages.length).toString()
+                          ),
+                        ),
+                        Icon(
+                          Icons.arrow_forward,
+                          color: Colors.white,
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+          Spacer(),
+        ],
+      ),
+    );
+  }
+}
+
+
