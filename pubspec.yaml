@@ -40,8 +40,9 @@ dependencies:
   file_picker:
   open_file:
   path: ^1.6.4
-  path_provider_ex:
   flutter_file_manager: ^0.2.0
+  advance_pdf_viewer: ^2.0.1
+  syncfusion_flutter_pdfviewer: ^19.4.43-beta
 
 dev_dependencies:
   flutter_test:
