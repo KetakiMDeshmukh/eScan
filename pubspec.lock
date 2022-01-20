@@ -120,11 +120,25 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "6.1.2"
+  file_picker:
+    dependency: "direct main"
+    description:
+      name: file_picker
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "4.3.2"
   flutter:
     dependency: "direct main"
     description: flutter
     source: sdk
     version: "0.0.0"
+  flutter_file_manager:
+    dependency: "direct main"
+    description:
+      name: flutter_file_manager
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.2.0"
   flutter_lints:
     dependency: "direct dev"
     description:
@@ -184,8 +198,15 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.7.0"
+  open_file:
+    dependency: "direct main"
+    description:
+      name: open_file
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "3.2.1"
   path:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: path
       url: "https://pub.dartlang.org"
@@ -212,6 +233,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.0.11"
+  path_provider_ex:
+    dependency: "direct main"
+    description:
+      name: path_provider_ex
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.0.1"
   path_provider_ios:
     dependency: transitive
     description:
