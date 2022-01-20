@@ -51,7 +51,7 @@ Tools and technologies learnt and used in this project:
 - [x]  Scanning documents
 - [x]  Accessing pdfs from local storage/device
 - [x]  Theme change
-- [ ]  Reading pdfs
+- [x]  Reading pdfs
 - [ ]  Converting presentations, excel sheets, word files to pdfs
 
 
