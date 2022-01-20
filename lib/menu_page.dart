@@ -9,39 +9,32 @@ class NavDrawer extends StatelessWidget {
         children: <Widget>[
           const DrawerHeader(
             child: Text(
-              'Settings',
+              'About Us',
               style: TextStyle(color: Colors.white, fontSize: 25),
             ),
             decoration: BoxDecoration(
-                color: Colors.blueAccent,
-                image: DecorationImage(
-                    fit: BoxFit.fill,
-                    image: AssetImage('assets/images/cover.jpg'))),
+              color: Colors.blueAccent,
+            ),
           ),
           ListTile(
-            leading: Icon(Icons.input),
-            title: Text('Welcome'),
-            onTap: () => {},
+            leading: Icon(Icons.circle_sharp),
+            title: Text('Ketaki',
+              style: TextStyle(fontSize: 20,),),
           ),
           ListTile(
-            leading: Icon(Icons.verified_user),
-            title: Text('Profile'),
-            onTap: () => {Navigator.of(context).pop()},
-          ),
-          /*ListTile(
-            leading: Icon(Icons.settings),
-            title: Text('Settings'),
-            onTap: () => {Navigator.of(context).pop()},
-          ),*/
-          ListTile(
-            leading: Icon(Icons.border_color),
-            title: Text('Feedback'),
-            onTap: () => {Navigator.of(context).pop()},
+            leading: Icon(Icons.circle_sharp),
+            title: Text('Anuraag',
+              style: TextStyle(fontSize: 20,),),
           ),
           ListTile(
-            leading: Icon(Icons.exit_to_app),
-            title: Text('Logout'),
-            onTap: () => {Navigator.of(context).pop()},
+            leading: Icon(Icons.circle_sharp),
+            title: Text('Tanmay',
+              style: TextStyle(fontSize: 20,),),
+          ),
+          ListTile(
+            leading: Icon(Icons.circle_sharp),
+            title: Text('Siddhant',
+              style: TextStyle(fontSize: 20,),),
           ),
         ],
       ),

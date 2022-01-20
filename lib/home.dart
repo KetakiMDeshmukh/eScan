@@ -4,8 +4,7 @@ import 'package:open_file/open_file.dart';
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:flutter_file_manager/flutter_file_manager.dart';
-import 'package:path_provider_ex/path_provider_ex.dart';
+import 'pdf_view.dart';
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
@@ -14,23 +13,38 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-  void openFile(PlatformFile file) {
-    OpenFile.open(file.path!);
-  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          ElevatedButton(
-            child: Text('Open file'),
-            onPressed: () async {
-              final result = await FilePicker.platform.pickFiles();
-              if(result == null) return;
+          Center(
+            child: ElevatedButton(
+              child: Padding(
+                padding: const EdgeInsets.all(16.0),
+                child: Text(
+                    'Open File From Downloads',
+                style: TextStyle(
+                  fontSize: 20,
+                ),),
+              ),
+              onPressed: () async {
+                final result = await FilePicker.platform.pickFiles();
+                if(result == null) return;
 
-              final file = result.files.first;
-              openFile(file);
-            },
+                final file = result.files.first;
+
+                Navigator.push(
+                  context,
+                    MaterialPageRoute(
+                    builder: (context) => PDFView(filePath: file.path!)
+                    )
+                   );
+                //openFile(file);
+              },
+            ),
           ),
         ],
       ),

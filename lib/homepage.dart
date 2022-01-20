@@ -38,12 +38,7 @@ class _HomePageState extends State<HomePage> {
           titleName,
           style: TextStyle(fontSize: 25.0),
         ),
-        actions: [
-          Container(
-            child: const Icon(Icons.filter_alt_sharp),
-            padding: EdgeInsets.only(right: 10.0),
-          ),
-        ],
+
       ),
       //---------------
 
@@ -57,7 +52,6 @@ class _HomePageState extends State<HomePage> {
           CupertinoIcons.camera_viewfinder,
           size: 35.0,
         ),
-        //TODO add action on pressing camera button
         onPressed: () {
           print("camera page");
           Navigator.push(
