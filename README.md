@@ -31,8 +31,8 @@ eScan is a flutter developed application. Its design and features are the key th
 - Converting images  to pdf
 - Performing operations on pdfs, like merging, splitting, etc.
   eScan application  has almost all the features one may require while using/making a pdf, combined altogether in a single application. It is supported by both Android as well as IOS devices. It is a user friendly application that has an attractive, simple and an interactive user interface.
-- GitHub repo link: https://github.com/KetakiMDeshmukh/eScan
-- Drive link: https://drive.google.com/folderview?id=1cqnHYgb_2abV52IEgqSxjFguBu8mTtGb
+- [GitHub Repo](https://github.com/KetakiMDeshmukh/eScan)
+- [Drive](https://drive.google.com/folderview?id=1cqnHYgb_2abV52IEgqSxjFguBu8mTtGb)
 
 
 ## 🧰 Technology stack
