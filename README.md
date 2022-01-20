@@ -51,10 +51,7 @@ Tools and technologies learnt and used in this project:
 - [x]  Scanning documents
 - [x]  Accessing pdfs from local storage/device
 - [x]  Theme change
-- [x]  User log-in
 - [ ]  Reading pdfs
-- [ ]  Edit pdfs
-- [ ]  Text Recognition
 - [ ]  Converting presentations, excel sheets, word files to pdfs
 
 
@@ -104,11 +101,12 @@ Tools and technologies learnt and used in this project:
 
 ## ⚙️ Applications
 
-eScan is PDF creator application which is mainly based on Dart programming language. This is a simple application which allows you to scan documents, images from your mobile phone. You can create a combined document from these images which gets automatically saved in the downloads folder. You don't need to look for the pdf anywhere else. eScan has a very simple and user friendly GUI, which makes it easy to use. The main feature about this app is _*Optical Character Recognition*_. It can read characters from the image/document. PDFs can be made searchable using this feature. The rest applications of this app are the same which we use in our day-to-day life, like word to pdf, excel sheet to pdf, ppt to pdf, image to pdf conversions, etc.   
+eScan is PDF creator application which is mainly based on Dart programming language. This is a simple application which allows you to scan documents, images from your mobile phone. You can create a combined document from these images which gets automatically saved in the downloads folder. You don't need to look for the pdf anywhere else. eScan has a very simple and user friendly GUI, which makes it easy to use. It can read characters from the image/document. PDFs can be made searchable using this feature. The rest applications of this app are the same which we use in our day-to-day life, like word to pdf, excel sheet to pdf, ppt to pdf, image to pdf conversions, etc.   
 
 
 ## 🔮 Future Scope
 
+- Optial Character Recognition.
 - Users will be able to create a custom pdf.
 - They could edit a pdf, extract images & text part of the pdf separately.
 - User can connect his/her drive to this app, so that he/she can directly access/store files on the drive.
