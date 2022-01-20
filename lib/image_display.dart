@@ -5,6 +5,8 @@ import 'package:pdf/widgets.dart' as pw;
 import 'package:flutter/material.dart';
 import 'package:path_provider/path_provider.dart';
 
+import 'pdf_view.dart';
+
 class image_display extends StatefulWidget {
   final List<File> listOfImages;
   const image_display({Key? key, required this.listOfImages}) : super(key: key);
@@ -16,6 +18,7 @@ class image_display extends StatefulWidget {
 class _image_displayState extends State<image_display> {
   var images;
   var listOfpdfs;
+  var pathOfFile;
   final pdf = pw.Document();
   var fileName = "test";
 
@@ -47,6 +50,7 @@ class _image_displayState extends State<image_display> {
         onPressed: (){
           if (images.isEmpty) return;
           createPDF();
+
           showModalBottomSheet<void>(
               context: context,
               builder: (BuildContext context) {
@@ -73,6 +77,7 @@ class _image_displayState extends State<image_display> {
                         },
                         onEditingComplete: (){
                           print(fileName);
+
                           savePDF();
                           Navigator.of(context).popUntil((route) => route.isFirst);
                         },
@@ -110,7 +115,9 @@ class _image_displayState extends State<image_display> {
   savePDF() async{
     try {
       Directory dir = Directory('/storage/emulated/0/Download');
-      final file = File('${dir.path}/${fileName}.pdf');
+      pathOfFile = '${dir.path}/${fileName}.pdf' ;
+      print(pathOfFile);
+      final file = File(pathOfFile);
       await file.writeAsBytes(await pdf.save());
       showPrintedMessage('success', 'savedToDocument');
     }
@@ -122,21 +129,9 @@ class _image_displayState extends State<image_display> {
     print(msg);
   }
 }
-/*
-GestureDetector(
-onTap: () {
-if (capturedImages.isEmpty) return;
-Navigator.push(
+/*Navigator.push(
 context,
-MaterialPageRoute(
-builder: (context) => image_display(listOfImages: capturedImages)
-)
-);
-},
-child: CircleAvatar(
-child: Icon(
-Icons.arrow_forward,
-color: Colors.lightBlueAccent,
-),
-),
-),*/
+  MaterialPageRoute(
+  builder: (context) => PDFView(filePath: pathOfFile)
+  )
+ );*/
