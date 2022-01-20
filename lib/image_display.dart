@@ -17,6 +17,7 @@ class _image_displayState extends State<image_display> {
   var images;
   var listOfpdfs;
   final pdf = pw.Document();
+  var fileName = "test";
 
   _image_displayState(_images){images = _images;}
 
@@ -41,18 +42,52 @@ class _image_displayState extends State<image_display> {
         },
       ),
       floatingActionButton: FloatingActionButton(
-          backgroundColor: Colors.lightBlueAccent,
-          child: Icon(Icons.arrow_forward,),
-          onPressed: (){
-            if (images.isEmpty) return;
-            createPDF();
-            savePDF();
-            /*Navigator.push(
-          context,
-          MaterialPageRoute(
-            builder: (context) => image_display()
-          ),
-        ),*/
+        backgroundColor: Colors.lightBlueAccent,
+        child: Icon(Icons.arrow_forward,),
+        onPressed: (){
+          if (images.isEmpty) return;
+          createPDF();
+          showModalBottomSheet<void>(
+              context: context,
+              builder: (BuildContext context) {
+                return Container(
+                height: MediaQuery.of(context).size.height * 0.75,
+                  child: Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  mainAxisSize: MainAxisSize.min,
+                    children: <Widget>[
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: const Text(
+                          'Enter name for the pdf : ',
+                        style: TextStyle(
+                          fontSize: 20,
+                        ),
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.all(20.0),
+                      child: TextField(
+                        onChanged: (text){
+                          fileName = text;
+                        },
+                        onEditingComplete: (){
+                          print(fileName);
+                          savePDF();
+                          Navigator.of(context).popUntil((route) => route.isFirst);
+                        },
+                        showCursor: true,
+                        decoration: InputDecoration(
+                          border: OutlineInputBorder(),
+                          suffixText: ".pdf"
+                        ),
+                      ),
+                    )
+                    ],
+                  ),
+                );
+                },
+          );
           }
 
       ),
@@ -75,7 +110,7 @@ class _image_displayState extends State<image_display> {
   savePDF() async{
     try {
       Directory dir = Directory('/storage/emulated/0/Download');
-      final file = File('${dir.path}/test4.pdf');
+      final file = File('${dir.path}/${fileName}.pdf');
       await file.writeAsBytes(await pdf.save());
       showPrintedMessage('success', 'savedToDocument');
     }
