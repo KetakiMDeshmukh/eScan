@@ -9,7 +9,7 @@ class NavDrawer extends StatelessWidget {
         children: <Widget>[
           const DrawerHeader(
             child: Text(
-              'Menu',
+              'Settings',
               style: TextStyle(color: Colors.white, fontSize: 25),
             ),
             decoration: BoxDecoration(
@@ -28,11 +28,11 @@ class NavDrawer extends StatelessWidget {
             title: Text('Profile'),
             onTap: () => {Navigator.of(context).pop()},
           ),
-          ListTile(
+          /*ListTile(
             leading: Icon(Icons.settings),
             title: Text('Settings'),
             onTap: () => {Navigator.of(context).pop()},
-          ),
+          ),*/
           ListTile(
             leading: Icon(Icons.border_color),
             title: Text('Feedback'),
