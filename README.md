@@ -115,7 +115,7 @@ eScan is PDF creator application which is mainly based on Dart programming langu
 
 ## 📱 Screenshots
 
-![Screen 1](https://github.com/KetakiMDeshmukh/eScan/blob/main/Screen1.jpg?raw=true)
+<img src="/images/Screen1.jpg" width = "30%" height="30%">
 <img src="/images/Screen2.jpg" width = "30%" height="30%">
 <img src="/images/Screen3.jpg" width = "30%" height="30%">
 <img src="/images/screen4.jpg" width = "30%" height="30%">
